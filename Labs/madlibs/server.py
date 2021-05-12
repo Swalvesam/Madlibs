@@ -55,11 +55,12 @@ def show_madlib_form():
 @app.route('/madlib')
 def show_madlib():
     """ Prints madlib with users input"""
-
+    #adjectives = ["cuddly", "funny", "angry", "sweaty", "playful", "sad"] 
+    
     person = request.args.get("person")
     color = request.args.get("color")
     noun = request.args.get("noun")
-    adjective = request.args.get("adjective")
+    adjective = request.args.getlist("adjective")
 
     return render_template("madlib.html", person=person, color=color, noun=noun, adjective=adjective)
 
